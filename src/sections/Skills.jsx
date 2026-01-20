@@ -12,20 +12,28 @@ const Skills = () => {
         My technical universe - explore the orbiting skills that power my development journey.
       </p>
 
-      <div className="bg-gradient-to-r from-transparent via-neutral-700 to-transparent mt-12 h-[1px] w-full" />
+      <div className="bg-gradient-to-r from-transparent via-neutral-700 to-transparent mt-8 h-[1px] w-full" />
 
       {/* Orbiting Skills Universe */}
-      <div className="relative flex h-[600px] w-full items-center justify-center overflow-hidden mt-20">
-        {/* Center Hub */}
-        <div className="relative z-10 flex h-32 w-32 items-center justify-center rounded-full border-4 border-white/20 bg-gradient-to-br from-blue-500/20 to-purple-500/20 backdrop-blur-sm">
-          <div className="text-center">
-            <p className="text-white font-bold text-2xl">TM</p>
-            <p className="text-white-600 text-xs">Developer</p>
-          </div>
+      <div className="relative flex h-[600px] w-full items-center justify-center overflow-hidden mt-10">
+        {/* Center - Sun with twinkling stars */}
+        <div className="skills-center-sun z-10">
+          {[1, 2, 3, 4, 5, 6, 7].map((i) => (
+            <div key={i} className={`skills-hub-star skills-hub-star-${i}`}>
+              <div className="skills-curved-corner-star">
+                <div className="skills-curved skills-curved-br" />
+                <div className="skills-curved skills-curved-bl" />
+              </div>
+              <div className="skills-curved-corner-star">
+                <div className="skills-curved skills-curved-tr" />
+                <div className="skills-curved skills-curved-tl" />
+              </div>
+            </div>
+          ))}
         </div>
 
         {/* Inner Orbit - Core Languages */}
-        <OrbitingCircles radius={120} duration={20} iconSize={60}>
+        <OrbitingCircles radius={170} duration={20} iconSize={60}>
           {skills.languages.slice(0, 4).map((skill, index) => (
             <div
               key={index}
@@ -45,7 +53,7 @@ const Skills = () => {
         </OrbitingCircles>
 
         {/* Middle Orbit - Frameworks & Tools */}
-        <OrbitingCircles radius={200} duration={30} reverse iconSize={50}>
+        <OrbitingCircles radius={250} duration={30} reverse iconSize={50}>
           {[...skills.languages.slice(4), ...skills.tools.slice(0, 2)].map((skill, index) => (
             <div
               key={index}
@@ -101,7 +109,7 @@ const Skills = () => {
         )}
       </div>
       {/* Legend */}
-      <div className="flex justify-center gap-8 mt-12">
+      <div className="flex justify-center gap-8 mt-8">
         <div className="flex items-center gap-2">
           <div className="w-4 h-4 rounded-full border-2 border-blue-500/40" />
           <span className="text-white-600 text-sm">Core Languages</span>

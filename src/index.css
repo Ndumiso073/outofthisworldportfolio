@@ -64,7 +64,7 @@ body {
 }
 
 .section-spacing {
-  @apply min-h-screen mt-20 md:mt-30;
+  @apply mt-12 md:mt-16;
 }
 
 .text-heading {
@@ -136,3 +136,57 @@ body {
 .field-input-focus {
   @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/20;
 }
+
+/* Skills Center - Sun with twinkling stars (Uiverse.io by reyrojo2). For the exact textured sun, replace the gradient with: background: url("data:image/jpeg;base64,<full base64>") left; and add sunRotate to animation. */
+@keyframes sunRotate {
+  0% { background-position: 0 0; }
+  100% { background-position: 400px 0; }
+}
+@keyframes shadowPulse {
+  0%, 100% {
+    box-shadow: 0 0 40px 20px rgba(255,140,0,0.8), -5px 0 10px 1px #ffb453 inset, 15px 2px 40px 20px #bb6d01c5 inset, -24px -2px 50px 25px #ffa265c2 inset, 150px 0 80px 35px #c55f00aa inset;
+  }
+  50% {
+    box-shadow: 0 0 60px 30px rgba(255,140,0,0.9), -5px 0 20px 5px #ffb453 inset, 15px 2px 60px 30px #bb6d01c5 inset, -24px -2px 70px 35px #ffa265c2 inset, 150px 0 100px 45px #c55f00aa inset;
+  }
+}
+@keyframes twinkling {
+  0%, 100% { opacity: 0.1; }
+  50% { opacity: 1; }
+}
+
+.skills-center-sun {
+  height: 300px;
+  width: 300px;
+  position: relative;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #fff8e6 0%, #ffd700 5%, #ffa500 15%, #ff6b00 30%, #e55a00 50%, #cc3300 70%, #991a00 90%, #660000 100%);
+  background-size: cover;
+  animation: shadowPulse 5s ease-in-out infinite;
+  box-shadow: 0 0 40px 20px rgba(255,140,0,0.8), -5px 0 10px 1px #ffb453 inset, 15px 2px 40px 20px #bb6d01c5 inset, -24px -2px 50px 25px #ffa265c2 inset, 150px 0 80px 35px #c55f00aa inset;
+}
+
+.skills-curved-corner-star { display: flex; position: relative; }
+
+.skills-curved { width: 4px; height: 5px; overflow: hidden; position: relative; }
+.skills-curved::before {
+  content: "";
+  display: block;
+  width: 200%;
+  height: 200%;
+  position: absolute;
+  border-radius: 50%;
+}
+.skills-curved-bl::before { bottom: 0; left: 0; box-shadow: -5px 5px 0 0 white; }
+.skills-curved-br::before { bottom: 0; right: 0; box-shadow: 5px 5px 0 0 white; }
+.skills-curved-tl::before { top: 0; left: 0; box-shadow: -5px -5px 0 0 white; }
+.skills-curved-tr::before { top: 0; right: 0; box-shadow: 5px -5px 0 0 white; }
+
+.skills-hub-star { position: absolute; animation: twinkling 3s infinite; }
+.skills-hub-star-1 { left: -20px; }
+.skills-hub-star-2 { left: -40px; top: 30px; animation-duration: 2s; }
+.skills-hub-star-3 { left: 350px; top: 90px; animation-duration: 4s; }
+.skills-hub-star-4 { left: 200px; top: 290px; animation-duration: 3s; }
+.skills-hub-star-5 { left: 50px; top: 270px; animation-duration: 1.5s; }
+.skills-hub-star-6 { left: 250px; top: -50px; animation-duration: 4s; }
+.skills-hub-star-7 { left: 290px; top: 60px; animation-duration: 2s; }
