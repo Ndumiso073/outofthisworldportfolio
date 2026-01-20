@@ -12,10 +12,10 @@ const Skills = () => {
         My technical universe - explore the orbiting skills that power my development journey.
       </p>
 
-      <div className="bg-gradient-to-r from-transparent via-neutral-700 to-transparent mt-12 h-[1px] w-full" />
+      <div className="bg-gradient-to-r from-transparent via-neutral-700 to-transparent mt-8 h-[1px] w-full" />
 
       {/* Orbiting Skills Universe */}
-      <div className="relative flex h-[600px] w-full items-center justify-center overflow-hidden mt-20">
+      <div className="relative flex h-[600px] w-full items-center justify-center overflow-hidden mt-10">
         {/* Center Hub */}
         <div className="relative z-10 flex h-32 w-32 items-center justify-center rounded-full border-4 border-white/20 bg-gradient-to-br from-blue-500/20 to-purple-500/20 backdrop-blur-sm">
           <div className="text-center">
@@ -101,7 +101,7 @@ const Skills = () => {
         )}
       </div>
       {/* Legend */}
-      <div className="flex justify-center gap-8 mt-12">
+      <div className="flex justify-center gap-8 mt-8">
         <div className="flex items-center gap-2">
           <div className="w-4 h-4 rounded-full border-2 border-blue-500/40" />
           <span className="text-white-600 text-sm">Core Languages</span>

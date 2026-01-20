@@ -47,7 +47,7 @@ const Publication = ({
 
   return (
     <motion.div 
-      className="relative py-20"
+      className="relative py-10"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
@@ -157,7 +157,7 @@ const Publication = ({
       </div>
 
       {/* Divider */}
-      <div className="bg-gradient-to-r from-transparent via-neutral-700 to-transparent mt-12 h-[1px] w-full" />
+      <div className="bg-gradient-to-r from-transparent via-neutral-700 to-transparent mt-8 h-[1px] w-full" />
     </motion.div>
   );
 };
