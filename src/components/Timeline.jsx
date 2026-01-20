@@ -20,40 +20,40 @@ export const Timeline = ({ data }) => {
   });
 
   const heightTransform = useTransform(scrollYProgress, [0, 1], [0, height]);
-  const opacityTransform = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
+  const opacityTransform = useTransform(scrollYProgress, [0, 0.2], [0, 1]);
 
   return (
     <div className="c-space section-spacing" ref={containerRef}>
       <h2 className="text-heading">My Work Experience</h2>
-      <div ref={ref} className="relative pb-20">
+      <div ref={ref} className="relative pb-12">
         {data.map((item, index) => (
-          <div
+          <motion.div
             key={index}
-            className="flex justify-start pt-10 md:pt-40 md:gap-10"
+            className="flex flex-col justify-start pt-6 md:flex-row md:pt-16 md:gap-10"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
           >
-              <div className="sticky top-20 z-40 flex flex-col items-center self-start max-w-xs md:flex-row lg:max-w-sm md:w-full">
-              <div className="absolute flex items-center justify-center w-10 h-10 rounded-full -left-[15px] bg-midnight">
+            <div className="relative z-10 flex flex-shrink-0 flex-col items-start w-full md:w-72 lg:w-80">
+              <div className="absolute flex items-center justify-center w-10 h-10 rounded-full -left-[15px] top-0 bg-midnight">
                 <div className="w-4 h-4 p-2 border rounded-full bg-neutral-800 border-neutral-700" />
               </div>
-              <div className="flex-col hidden gap-2 text-xl font-bold md:flex md:pl-20 md:text-4xl text-neutral-300">
-                <h3>{item.date}</h3>
-                <h3 className="text-3xl text-neutral-400">{item.title}</h3>
-                <h3 className="text-3xl text-neutral-500">{item.job}</h3>
+              <div className="flex flex-col gap-3 pl-8 md:pl-12 text-left">
+                <h3 className="text-lg font-bold text-neutral-300 md:text-2xl">{item.date}</h3>
+                <h3 className="text-xl font-bold text-neutral-400 md:text-3xl">{item.title}</h3>
+                <h3 className="text-base font-semibold leading-snug text-neutral-500 md:text-xl md:leading-snug">{item.job}</h3>
               </div>
             </div>
 
-            <div className="relative w-full pl-20 pr-4 md:pl-4">
-              <div className="block mb-4 text-2xl font-bold text-left text-neutral-300 md:hidden ">
-                <h3>{item.date}</h3>
-                <h3>{item.job}</h3>
-              </div>
-              {item.contents.map((content, index) => (
-                <p className="mb-3 font-normal text-neutral-400" key={index}>
+            <div className="relative min-w-0 flex-1 pl-8 pr-4 md:pl-2">
+              {item.contents.map((content, idx) => (
+                <p className="mb-3 font-normal text-neutral-400" key={idx}>
                   {content}
                 </p>
               ))}
             </div>
-          </div>
+          </motion.div>
         ))}
         <div
           style={{

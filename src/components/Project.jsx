@@ -14,7 +14,7 @@ const Project = ({
   return (
     <>
       <div
-        className="flex-wrap items-center justify-between py-6 space-y-8 sm:flex sm:space-y-0 sm:py-8"
+        className="flex-wrap items-center justify-between py-4 space-y-6 sm:flex sm:space-y-0 sm:py-6"
         onMouseEnter={() => setPreview(image)}
         onMouseLeave={() => setPreview(null)}
       >

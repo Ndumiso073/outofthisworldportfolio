@@ -16,20 +16,12 @@ const Skills = () => {
 
       {/* Orbiting Skills Universe */}
       <div className="relative flex h-[600px] w-full items-center justify-center overflow-hidden mt-10">
-        {/* Center - Sun with twinkling stars */}
-        <div className="skills-center-sun z-10">
-          {[1, 2, 3, 4, 5, 6, 7].map((i) => (
-            <div key={i} className={`skills-hub-star skills-hub-star-${i}`}>
-              <div className="skills-curved-corner-star">
-                <div className="skills-curved skills-curved-br" />
-                <div className="skills-curved skills-curved-bl" />
-              </div>
-              <div className="skills-curved-corner-star">
-                <div className="skills-curved skills-curved-tr" />
-                <div className="skills-curved skills-curved-tl" />
-              </div>
-            </div>
-          ))}
+        {/* Center Hub */}
+        <div className="relative z-10 flex h-32 w-32 items-center justify-center rounded-full border-4 border-white/20 bg-gradient-to-br from-blue-500/20 to-purple-500/20 backdrop-blur-sm">
+          <div className="text-center">
+            <p className="text-white font-bold text-2xl">TM</p>
+            <p className="text-white-600 text-xs">Developer</p>
+          </div>
         </div>
 
         {/* Inner Orbit - Core Languages */}
