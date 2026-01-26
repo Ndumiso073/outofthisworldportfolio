@@ -4,14 +4,14 @@
   "version": "0.0.0",
   "type": "module",
   "engines": {
-  "node": "20.x"
-},
-"scripts": {
-  "dev": "vite",
-  "build": "vite build --logLevel info",
-  "lint": "eslint .",
-  "preview": "vite preview"
-},
+    "node": "20.x"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
     "@gsap/react": "^2.1.2",
