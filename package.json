@@ -7,11 +7,13 @@
     "node": "22.x"
   },
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
-  },
+  "prebuild": "chmod +x node_modules/.bin/vite",
+  "dev": "vite",
+  "build": "vite build",
+  "lint": "eslint .",
+  "preview": "vite preview"
+}
+,
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
     "@gsap/react": "^2.1.2",
