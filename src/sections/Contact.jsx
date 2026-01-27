@@ -34,20 +34,20 @@ const Contact = () => {
         "template_17us8im",
         {
           from_name: formData.name,
-          to_name: "Ali",
+          to_name: "Ndumiso",
           from_email: formData.email,
-          to_email: "AliSanatiDev@gmail.com",
+          to_email: "Ndumisomndaweni073@gmail.com",
           message: formData.message,
         },
         "pn-Bw_mS1_QQdofuV"
       );
       setIsLoading(false);
       setFormData({ name: "", email: "", message: "" });
-      showAlertMessage("success", "You message has been sent!");
+      showAlertMessage("success", "Your message has been sent!");
     } catch (error) {
       setIsLoading(false);
       console.log(error);
-      showAlertMessage("danger", "Somthing went wrong!");
+      showAlertMessage("danger", "Something went wrong!");
     }
   };
   return (
@@ -68,6 +68,16 @@ const Contact = () => {
            improving an existing platform, or bringing a unique idea to life, 
            I’m here to turn your vision into a functional, modern solution.
           </p>
+          <a 
+            href="/Ndumiso-Mndaweni-Resume.pdf" 
+            download="Ndumiso-Mndaweni-Resume.pdf"
+            className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-gradient-to-r from-lavender to-royal rounded-lg hover:shadow-lg transition-all duration-300 hover:scale-105"
+          >
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+            Download Resume
+          </a>
         </div>
         <form className="w-full" onSubmit={handleSubmit}>
           <div className="mb-5">
