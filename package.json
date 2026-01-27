@@ -7,7 +7,6 @@
     "node": "22.x"
   },
   "scripts": {
-  "prebuild": "chmod +x node_modules/.bin/vite",
   "dev": "vite",
   "build": "vite build",
   "lint": "eslint .",
