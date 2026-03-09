@@ -96,6 +96,11 @@ export const myProjects = [
         name: "JavaScript",
         path: "/assets/logos/javascript.svg",
       },
+      {
+        id: 4,
+        name: "MongoDB",
+        path: "/assets/logos/mongodb.svg",
+      },
     ],
   },
 ];
@@ -165,6 +170,17 @@ export const skills = {
 };
 
 export const experiences = [
+  {
+    title: "Freelance Full-Stack Developer",
+    job: "Self-Employed",
+    date: "2026",
+    contents: [
+      "Designing and building modern web applications and e-commerce platforms using React, JavaScript, and Tailwind CSS.",
+      "Developing personal and portfolio-driven projects focused on clean user experience, responsive design, and scalable architecture.",
+      "Creating marketplace and business-oriented systems such as ClosetVault e-commerce and Pongola Cleaning Supplies to strengthen real-world product development skills.",
+      "Continuously improving frontend structure, application planning, and full-stack development practices through hands-on project work.",
+    ],
+  },
   {
     title: "Software Developer Intern",
     job: "Innovations Lab Mangosuthu University of Technology",
