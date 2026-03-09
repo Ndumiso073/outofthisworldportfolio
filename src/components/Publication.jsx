@@ -1,6 +1,6 @@
 import React from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
-import { useState } from "react";
+import CosmicButton from "./CosmicButton";
 
 const Publication = ({
   id,
@@ -17,7 +17,6 @@ const Publication = ({
   
   const rotateX = useSpring(mouseY, { damping: 20, stiffness: 100 });
   const rotateY = useSpring(mouseX, { damping: 20, stiffness: 100 });
-  const [buttonPosition, setButtonPosition] = useState({ x: 0, y: 0 });
 
   const handleMouseMove = (e) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -30,19 +29,6 @@ const Publication = ({
   const handleMouseLeave = () => {
     mouseX.set(0);
     mouseY.set(0);
-  };
-
-  const handleButtonMouseMove = (e) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const centerX = rect.left + rect.width / 2;
-    const centerY = rect.top + rect.height / 2;
-    const distanceX = (e.clientX - centerX) * 0.3;
-    const distanceY = (e.clientY - centerY) * 0.3;
-    setButtonPosition({ x: distanceX, y: distanceY });
-  };
-
-  const handleButtonMouseLeave = () => {
-    setButtonPosition({ x: 0, y: 0 });
   };
 
   return (
@@ -100,40 +86,9 @@ const Publication = ({
 
           {/* DOI Link */}
           {href && (
-            <motion.a
-              href={href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="relative flex items-center gap-2 mt-3 px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full w-fit group overflow-hidden"
-              onMouseMove={handleButtonMouseMove}
-              onMouseLeave={handleButtonMouseLeave}
-              animate={{ x: buttonPosition.x, y: buttonPosition.y }}
-              transition={{ type: "spring", stiffness: 150, damping: 15 }}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <motion.div
-                className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity"
-              />
-              <p className="relative z-10 font-semibold text-white">
-                View Publication
-              </p>
-              <motion.svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={2}
-                stroke="currentColor"
-                className="relative z-10 w-5 h-5 text-white"
-                animate={{ x: buttonPosition.x > 0 ? 3 : 0 }}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
-                />
-              </motion.svg>
-            </motion.a>
+            <div className="mt-3">
+              <CosmicButton href={href}>View Publication</CosmicButton>
+            </div>
           )}
         </div>
 

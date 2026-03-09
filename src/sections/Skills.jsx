@@ -1,15 +1,16 @@
 import { OrbitingCircles } from "../components/OrbitingCircles";
 import { skills } from "../constants";
 import { useState } from "react";
+import StarfieldSun from "../components/StarfieldSun";
 
 const Skills = () => {
   const [hoveredSkill, setHoveredSkill] = useState(null);
 
   return (
     <section className="relative c-space section-spacing">
-      <h2 className="text-heading">Technical Arsenal</h2>
+      <h2 className="text-heading">Technical Skills</h2>
       <p className="text-white-600 text-lg mt-4 max-w-3xl">
-        My technical universe - explore the orbiting skills that power my development journey.
+        Core technologies and tools I use to bring ideas to life.
       </p>
 
       <div className="bg-gradient-to-r from-transparent via-neutral-700 to-transparent mt-12 h-[1px] w-full" />
@@ -17,11 +18,8 @@ const Skills = () => {
       {/* Orbiting Skills Universe - Responsive */}
       <div className="relative flex h-[400px] sm:h-[500px] md:h-[600px] w-full items-center justify-center overflow-hidden mt-12 sm:mt-16 md:mt-20">
         {/* Center Hub */}
-        <div className="relative z-10 flex h-20 w-20 sm:h-28 sm:w-28 md:h-32 md:w-32 items-center justify-center rounded-full border-2 sm:border-3 md:border-4 border-white/20 bg-gradient-to-br from-blue-500/20 to-purple-500/20 backdrop-blur-sm">
-          <div className="text-center">
-            <p className="text-white font-bold text-lg sm:text-xl md:text-2xl">TM</p>
-            <p className="text-white-600 text-[10px] sm:text-xs">Developer</p>
-          </div>
+        <div className="relative z-10 flex h-20 w-20 sm:h-28 sm:w-28 md:h-32 md:w-32 items-center justify-center rounded-full border-2 sm:border-3 md:border-4 border-white/20 bg-gradient-to-br from-blue-500/20 to-purple-500/20 backdrop-blur-sm sun-glow">
+          <StarfieldSun size="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20" />
         </div>
 
         {/* Inner Orbit - Core Languages */}

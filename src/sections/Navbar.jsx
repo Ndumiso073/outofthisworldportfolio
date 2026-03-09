@@ -4,22 +4,22 @@ function Navigation() {
   return (
     <ul className="nav-ul">
       <li className="nav-li">
-        <a className="nav-link" href="#home">
+        <a className="nav-link" href="#home" smooth={true}>
           Home
         </a>
       </li>
       <li className="nav-li">
-        <a className="nav-link" href="#about">
+        <a className="nav-link" href="#about" smooth={true}>
           About
         </a>
       </li>
       <li className="nav-li">
-        <a className="nav-link" href="#work">
+        <a className="nav-link" href="#work" smooth={true}>
           Work
         </a>
       </li>
       <li className="nav-li">
-        <a className="nav-link" href="#contact">
+        <a className="nav-link" href="#contact" smooth={true}>
           Contact
         </a>
       </li>

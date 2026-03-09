@@ -1,36 +1,30 @@
 export const myProjects = [
   {
     id: 1,
-    title: "E-commerce Platform",
+    title: "Pongola Cleaning Supplies",
     description:
-      "Facilitates purchases from international websites like Amazon and eBay, allowing customers to shop from these sites and have products delivered domestically.",
+      "E-commerce platform for Pongola Cleaning Supplies, enabling customers to browse and purchase cleaning products online with domestic delivery.",
     subDescription: [
-      "Built a scalable application with ASP.NET Core MVC, integrating global platforms like Amazon for domestic delivery.",
-      "Implemented secure authentication and database management using ASP.NET Core Identity and Entity Framework Core.",
-      "Designed a responsive frontend with Tailwind CSS, enhancing user experience.",
-      "Added payment systems, localization, and product filtering for functionality improvements.",
+      "Built a scalable React application integrating secure authentication with MySQL Core Identity and database management using Entity Framework Core.",
+      "Designed a responsive frontend with Tailwind CSS and implemented product filtering, shopping cart, and order management for a seamless user experience.",
+      "Developed comprehensive admin dashboard for inventory management and order processing with real-time updates.",
     ],
     href: "",
     logo: "",
-    image: "/assets/projects/accessories.jpg",
+    image: "/assets/projects/accessories.png",
     tags: [
       {
         id: 1,
-        name: "C#",
-        path: "/assets/logos/csharp.svg",
+        name: "React",
+        path: "/assets/logos/react.svg",
       },
       {
         id: 2,
-        name: ".Net",
-        path: "/assets/logos/dotnet.svg",
+        name: "MySQL",
+        path: "/assets/logos/mysql.svg",
       },
       {
         id: 3,
-        name: "Ef Core",
-        path: "/assets/logos/efcore.png",
-      },
-      {
-        id: 4,
         name: "TailwindCSS",
         path: "/assets/logos/tailwindcss.svg",
       },
@@ -70,6 +64,37 @@ export const myProjects = [
         id: 4,
         name: "SQL Server",
         path: "/assets/logos/sql-serverr.png",
+      },
+    ],
+  },
+  {
+    id: 3,
+    title: "ClosetVault Streetwear Marketplace",
+    description:
+      "A streetwear and sneaker marketplace platform that combines e-commerce with a personal digital vault, allowing users to shop trending fashion, save items, and receive smarter style-focused recommendations.",
+    subDescription: [
+      "Designed and developed a modern React-based marketplace experience inspired by premium fashion platforms, with structured category navigation, product discovery flows, and conversion-focused landing pages.",
+      "Planned the platform around a multi-seller marketplace model, including product browsing, product detail pages, cart and checkout flows, user authentication, and seller-facing architecture for future scalability.",
+      "Introduced the 'Vault' concept as a differentiating feature, enabling users to save favorite streetwear pieces, organize personal style collections, and support personalized recommendations within the shopping experience.",
+    ],
+    href: "",
+    logo: "",
+    image: "/assets/projects/closetvault.png",
+    tags: [
+      {
+        id: 1,
+        name: "React",
+        path: "/assets/logos/react.svg",
+      },
+      {
+        id: 2,
+        name: "TailwindCSS",
+        path: "/assets/logos/tailwindcss.svg",
+      },
+      {
+        id: 3,
+        name: "JavaScript",
+        path: "/assets/logos/javascript.svg",
       },
     ],
   },
@@ -129,11 +154,13 @@ export const skills = {
     { name: "Azure DevOps", level: 75, icon: "/assets/logos/azure.svg" },
     { name: "Figma", level: 70, icon: "/assets/logos/figma.svg" },
     { name: "Visual Studio", level: 85, icon: "/assets/logos/vscode.svg" },
+    { name: "WordPress", level: 60, icon: "/assets/logos/wordpress.svg" },
   ],
   databases: [
     { name: "MySQL", level: 80, icon: "/assets/logos/mysql.svg" },
     { name: "SQL Server", level: 60, icon: "/assets/logos/sql-serverr.png" },
     { name: "Firebase", level: 85, icon: "/assets/logos/firebase.svg" },
+    { name: "MongoDB", level: 70, icon: "/assets/logos/mongodb.svg" },
   ],
 };
 

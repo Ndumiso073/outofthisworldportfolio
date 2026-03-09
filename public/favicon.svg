@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <!-- Space Background -->
+  <rect width="32" height="32" fill="#0a0a0a"/>
+  
+  <!-- Stars -->
+  <circle cx="8" cy="8" r="1" fill="#ffffff"/>
+  <circle cx="24" cy="6" r="0.5" fill="#ffffff"/>
+  <circle cx="28" cy="12" r="1" fill="#ffffff"/>
+  <circle cx="4" cy="20" r="0.5" fill="#ffffff"/>
+  <circle cx="26" cy="26" r="1" fill="#ffffff"/>
+  <circle cx="6" cy="28" r="0.5" fill="#ffffff"/>
+  
+  <!-- Rocket -->
+  <g transform="translate(16, 16)">
+    <!-- Rocket Body -->
+    <path d="M0,-8 L-3,4 L-2,6 L0,5 L2,6 L3,4 Z" fill="#ff6b35"/>
+    <!-- Rocket Window -->
+    <circle cx="0" cy="-2" r="2" fill="#4a90e2"/>
+    <!-- Rocket Flames -->
+    <path d="M-2,6 L-1,10 L0,8 L1,10 L2,6 Z" fill="#f39c12"/>
+    <path d="M-1,6 L-0.5,8 L0,7 L0.5,8 L1,6 Z" fill="#e74c3c"/>
+  </g>
+  
+  <!-- Orbit Ring -->
+  <circle cx="16" cy="16" r="12" fill="none" stroke="#4a90e2" stroke-width="0.5" opacity="0.3"/>
+</svg>
