@@ -77,7 +77,7 @@ export const myProjects = [
       "Planned the platform around a multi-seller marketplace model, including product browsing, product detail pages, cart and checkout flows, user authentication, and seller-facing architecture for future scalability.",
       "Introduced the 'Vault' concept as a differentiating feature, enabling users to save favorite streetwear pieces, organize personal style collections, and support personalized recommendations within the shopping experience.",
     ],
-    href: "",
+    href: "https://closetvault.netlify.app/",
     logo: "",
     image: "/assets/projects/closetvault.png",
     tags: [
