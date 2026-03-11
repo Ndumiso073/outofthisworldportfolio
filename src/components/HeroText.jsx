@@ -8,7 +8,7 @@ const HeroText = () => {
     visible: { opacity: 1, x: 0 },
   };
   return (
-    <div className="z-10 mt-16 text-center md:mt-24 md:text-left rounded-3xl bg-clip-text">
+    <div className="z-10 mt-20 sm:mt-16 text-center md:mt-24 md:text-left rounded-3xl bg-clip-text">
       {/* Desktop View */}
       <div className="flex-col hidden md:flex c-space">
         <motion.h1
@@ -53,19 +53,19 @@ const HeroText = () => {
         </div>
       </div>
       {/* Mobile View */}
-      <div className="flex- flex-col space-y-6 md:hidden">
+      <div className="flex flex-col space-y-4 md:hidden px-4">
         <motion.p
-          className="text-4xl font-medium"
+          className="text-2xl sm:text-3xl font-medium"
           variants={variants}
           initial="hidden"
           animate="visible"
           transition={{ delay: 1 }}
         >
-          Hi,I'm Ndumiso Mndaweni
+          Hi, I'm Ndumiso Mndaweni
         </motion.p>
         <div>
           <motion.p
-            className="text-5xl font-black text-neutral-300"
+            className="text-3xl sm:text-4xl font-black text-neutral-300"
             variants={variants}
             initial="hidden"
             animate="visible"
@@ -81,11 +81,11 @@ const HeroText = () => {
           >
             <FlipWords
               words={words}
-              className="font-bold text-white text-7xl"
+              className="font-bold text-white text-5xl sm:text-6xl"
             />
           </motion.div>
           <motion.p
-            className="text-4xl font-black text-neutral300"
+            className="text-2xl sm:text-3xl font-black text-neutral-300"
             variants={variants}
             initial="hidden"
             animate="visible"

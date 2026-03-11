@@ -41,7 +41,7 @@ const Publication = ({
     >
       <div className="grid grid-cols-1 gap-5 lg:grid-cols-2">
         {/* Left Side - Publication Details */}
-        <div className="flex flex-col gap-5 pr-8">
+        <div className="flex flex-col gap-5 pr-0 lg:pr-8">
           <div className="flex items-center gap-3">
             <p className="px-3 py-1 text-sm font-medium text-white bg-black-200 rounded-full w-fit">
               {year}

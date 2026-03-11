@@ -2,9 +2,20 @@ import { OrbitingCircles } from "../components/OrbitingCircles";
 import { skills } from "../constants";
 import { useState } from "react";
 import StarfieldSun from "../components/StarfieldSun";
+import { useMediaQuery } from "react-responsive";
 
 const Skills = () => {
   const [hoveredSkill, setHoveredSkill] = useState(null);
+  const isSmall = useMediaQuery({ maxWidth: 639 });
+  const isMedium = useMediaQuery({ maxWidth: 767 });
+
+  const innerRadius = isSmall ? 80 : isMedium ? 100 : 120;
+  const middleRadius = isSmall ? 130 : isMedium ? 165 : 200;
+  const outerRadius = isSmall ? 180 : isMedium ? 230 : 280;
+
+  const innerIconSize = isSmall ? 45 : isMedium ? 55 : 60;
+  const middleIconSize = isSmall ? 40 : isMedium ? 45 : 50;
+  const outerIconSize = isSmall ? 38 : isMedium ? 42 : 45;
 
   return (
     <section className="relative c-space section-spacing">
@@ -15,7 +26,7 @@ const Skills = () => {
 
       <div className="bg-gradient-to-r from-transparent via-neutral-700 to-transparent mt-12 h-[1px] w-full" />
 
-      {/* Orbiting Skills Universe - Responsive */}
+      {/* Orbiting Skills Universe */}
       <div className="relative flex h-[400px] sm:h-[500px] md:h-[600px] w-full items-center justify-center overflow-hidden mt-12 sm:mt-16 md:mt-20">
         {/* Center Hub */}
         <div className="relative z-10 flex h-20 w-20 sm:h-28 sm:w-28 md:h-32 md:w-32 items-center justify-center rounded-full border-2 sm:border-3 md:border-4 border-white/20 bg-gradient-to-br from-blue-500/20 to-purple-500/20 backdrop-blur-sm sun-glow">
@@ -23,10 +34,10 @@ const Skills = () => {
         </div>
 
         {/* Inner Orbit - Core Languages */}
-        <OrbitingCircles 
-          radius={window.innerWidth < 640 ? 80 : window.innerWidth < 768 ? 100 : 120} 
-          duration={20} 
-          iconSize={window.innerWidth < 640 ? 45 : window.innerWidth < 768 ? 55 : 60}
+        <OrbitingCircles
+          radius={innerRadius}
+          duration={20}
+          iconSize={innerIconSize}
         >
           {skills.languages.slice(0, 4).map((skill, index) => (
             <div
@@ -48,11 +59,11 @@ const Skills = () => {
         </OrbitingCircles>
 
         {/* Middle Orbit - Frameworks & Tools */}
-        <OrbitingCircles 
-          radius={window.innerWidth < 640 ? 130 : window.innerWidth < 768 ? 165 : 200} 
-          duration={30} 
-          reverse 
-          iconSize={window.innerWidth < 640 ? 40 : window.innerWidth < 768 ? 45 : 50}
+        <OrbitingCircles
+          radius={middleRadius}
+          duration={30}
+          reverse
+          iconSize={middleIconSize}
         >
           {[...skills.languages.slice(4), ...skills.tools.slice(0, 2)].map((skill, index) => (
             <div
@@ -74,10 +85,10 @@ const Skills = () => {
         </OrbitingCircles>
 
         {/* Outer Orbit - Databases & Additional Tools */}
-        <OrbitingCircles 
-          radius={window.innerWidth < 640 ? 180 : window.innerWidth < 768 ? 230 : 280} 
-          duration={40} 
-          iconSize={window.innerWidth < 640 ? 38 : window.innerWidth < 768 ? 42 : 45}
+        <OrbitingCircles
+          radius={outerRadius}
+          duration={40}
+          iconSize={outerIconSize}
         >
           {[...skills.databases, ...skills.tools.slice(2)].map((skill, index) => (
             <div
@@ -98,7 +109,7 @@ const Skills = () => {
           ))}
         </OrbitingCircles>
 
-        {/* Hover/Tap Details Card */}
+        {/* Tap/Hover Details Card */}
         {hoveredSkill && (
           <div className="absolute bottom-4 sm:bottom-8 md:bottom-10 left-1/2 -translate-x-1/2 bg-black-200/90 backdrop-blur-lg border border-white/20 rounded-xl px-4 py-3 sm:px-6 sm:py-4 z-50 animate-in fade-in slide-in-from-bottom-4 duration-300 max-w-[90%] sm:max-w-none">
             <p className="text-white font-bold text-base sm:text-lg">{hoveredSkill.name}</p>
