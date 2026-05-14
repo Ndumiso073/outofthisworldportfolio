@@ -103,6 +103,43 @@ export const myProjects = [
       },
     ],
   },
+  {
+    id: 4,
+    title: "AgriChain — Blockchain-Powered Agricultural Traceability System",
+    description:
+      "A full-stack agricultural traceability system using blockchain, Supabase Auth, QR verification, and role-based access control to secure farm-to-market supply chains.",
+    subDescription: [
+      "Built a responsive React + Vite frontend with nine role-based pages, glass-morphism UI, animated stat counters, and live QR verification flows.",
+      "Secured users with Supabase Auth, mandatory email confirmation, JWT sessions, simulated 2FA OTP, and role-based guards enforced by React routes and Supabase RLS.",
+      "Designed PostgreSQL tables for profiles, harvests, and scans, plus an auto-flag trigger that detects suspicious QR scan activity in real time.",
+      "Integrated MetaMask and ethers.js for Polygon Amoy wallet verification, SHA-256 harvest hashing, and QR-based on-chain provenance checks.",
+    ],
+    href: "https://agrichain-demo.netlify.app/",
+    logo: "",
+    image: "/assets/projects/Agridemo.png",
+    tags: [
+      {
+        id: 1,
+        name: "React",
+        path: "/assets/logos/react.svg",
+      },
+      {
+        id: 2,
+        name: "TailwindCSS",
+        path: "/assets/logos/tailwindcss.svg",
+      },
+      {
+        id: 3,
+        name: "JavaScript",
+        path: "/assets/logos/javascript.svg",
+      },
+      {
+        id: 4,
+        name: "Vite",
+        path: "/assets/logos/vitejs.svg",
+      },
+    ],
+  },
 ];
 export const myPublications = [
   {
