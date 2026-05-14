@@ -115,19 +115,6 @@ const Skills = () => {
         </div>
       </div>
 
-      {/* Legend */}
-      <div className="c-space flex flex-wrap justify-center gap-4 sm:gap-6 md:gap-8 mt-6 md:mt-12">
-        {[
-          { color: "border-blue-500/40",   label: "Core Languages" },
-          { color: "border-purple-500/40", label: "Frameworks & Tools" },
-          { color: "border-green-500/40",  label: "Databases & More" },
-        ].map(({ color, label }) => (
-          <div key={label} className="flex items-center gap-2">
-            <div className={`w-3 h-3 sm:w-4 sm:h-4 rounded-full border-2 ${color}`} />
-            <span className="text-neutral-400 text-xs sm:text-sm">{label}</span>
-          </div>
-        ))}
-      </div>
     </section>
   );
 };
