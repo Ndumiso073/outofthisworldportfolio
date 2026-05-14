@@ -20,9 +20,11 @@ const Skills = () => {
   const handleSkillClick = (skill) =>
     setHoveredSkill(hoveredSkill?.name === skill.name ? null : skill);
 
+  // Square size = 2 * outerRadius + icon padding
+  const containerSize = isSmall ? 420 : isMedium ? 520 : 620;
+
   return (
     <section className="relative section-spacing">
-      {/* Text content stays padded */}
       <div className="c-space">
         <h2 className="text-heading">Technical Skills</h2>
         <p className="text-neutral-400 text-base sm:text-lg mt-4 max-w-3xl">
@@ -31,81 +33,86 @@ const Skills = () => {
         <div className="bg-gradient-to-r from-transparent via-neutral-700 to-transparent mt-12 h-[1px] w-full" />
       </div>
 
-      {/* Orbiting Skills Universe — full viewport width so orbit is truly centered */}
-      <div className="relative flex h-[420px] sm:h-[500px] md:h-[600px] w-screen left-1/2 -translate-x-1/2 items-center justify-center overflow-hidden mt-10 sm:mt-16 md:mt-20">
+      {/* ✅ Full-width wrapper for centering */}
+      <div className="w-full flex justify-center overflow-hidden mt-10 sm:mt-16 md:mt-20">
 
-        {/* Center Hub */}
-        <div className="relative z-10 flex h-20 w-20 sm:h-28 sm:w-28 md:h-32 md:w-32 items-center justify-center rounded-full border-2 border-white/20 bg-gradient-to-br from-blue-500/20 to-purple-500/20 backdrop-blur-sm sun-glow">
-          <StarfieldSun size="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20" />
-        </div>
-
-        {/* Inner Orbit — Core Languages */}
-        <OrbitingCircles radius={innerRadius} duration={20} iconSize={innerIconSize}>
-          {skills.languages.slice(0, 4).map((skill, index) => (
-            <SkillIcon
-              key={index}
-              skill={skill}
-              size="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14"
-              imgSize="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8"
-              border="border-blue-500/40 hover:border-blue-500 hover:shadow-blue-500/50"
-              hoveredSkill={hoveredSkill}
-              onHover={setHoveredSkill}
-              onClick={handleSkillClick}
-            />
-          ))}
-        </OrbitingCircles>
-
-        {/* Middle Orbit — Frameworks & Tools */}
-        <OrbitingCircles radius={middleRadius} duration={30} reverse iconSize={middleIconSize}>
-          {[...skills.languages.slice(4), ...skills.tools.slice(0, 2)].map((skill, index) => (
-            <SkillIcon
-              key={index}
-              skill={skill}
-              size="w-9 h-9 sm:w-11 sm:h-11 md:w-12 md:h-12"
-              imgSize="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7"
-              border="border-purple-500/40 hover:border-purple-500 hover:shadow-purple-500/50"
-              hoveredSkill={hoveredSkill}
-              onHover={setHoveredSkill}
-              onClick={handleSkillClick}
-            />
-          ))}
-        </OrbitingCircles>
-
-        {/* Outer Orbit — Databases & Additional Tools */}
-        <OrbitingCircles radius={outerRadius} duration={40} iconSize={outerIconSize}>
-          {[...skills.databases, ...skills.tools.slice(2)].map((skill, index) => (
-            <SkillIcon
-              key={index}
-              skill={skill}
-              size="w-8 h-8 sm:w-10 sm:h-10 md:w-11 md:h-11"
-              imgSize="w-5 h-5 sm:w-6 sm:h-6"
-              border="border-green-500/40 hover:border-green-500 hover:shadow-green-500/50"
-              hoveredSkill={hoveredSkill}
-              onHover={setHoveredSkill}
-              onClick={handleSkillClick}
-            />
-          ))}
-        </OrbitingCircles>
-
-        {/* Skill detail card — anchored to bottom of orbit container */}
-        {hoveredSkill && (
-          <div className="absolute bottom-2 sm:bottom-6 left-1/2 -translate-x-1/2 w-[85%] sm:w-auto bg-navy/95 backdrop-blur-lg border border-white/20 rounded-xl px-4 py-3 sm:px-6 sm:py-4 z-50">
-            <p className="text-white font-bold text-sm sm:text-base md:text-lg truncate">
-              {hoveredSkill.name}
-            </p>
-            <div className="flex items-center gap-2 mt-2">
-              <div className="flex-1 sm:w-32 sm:flex-none h-2 bg-storm rounded-full overflow-hidden">
-                <div
-                  className="h-full bg-gradient-to-r from-blue-500 to-purple-500 rounded-full transition-all duration-500"
-                  style={{ width: `${hoveredSkill.level}%` }}
-                />
-              </div>
-              <span className="text-blue-400 font-semibold text-sm sm:text-base shrink-0">
-                {hoveredSkill.level}%
-              </span>
-            </div>
+        {/* ✅ Perfectly square container — this is what fixes the oval sun */}
+        <div
+          className="relative flex items-center justify-center"
+          style={{
+            width: `${containerSize}px`,
+            height: `${containerSize}px`, // equal width & height = perfect square
+          }}
+        >
+          {/* ✅ Center Hub — inline px size, flexShrink:0 prevents squishing */}
+          <div
+            className="relative z-10 flex items-center justify-center rounded-full border-2 border-white/20 bg-gradient-to-br from-blue-500/20 to-purple-500/20 backdrop-blur-sm sun-glow"
+            style={{
+              width: isSmall ? '80px' : isMedium ? '112px' : '128px',
+              height: isSmall ? '80px' : isMedium ? '112px' : '128px',
+              flexShrink: 0,
+            }}
+          >
+            <StarfieldSun size={isSmall ? "w-12 h-12" : isMedium ? "w-16 h-16" : "w-20 h-20"} />
           </div>
-        )}
+
+          {/* Inner Orbit */}
+          <OrbitingCircles radius={innerRadius} duration={20} iconSize={innerIconSize}>
+            {skills.languages.slice(0, 4).map((skill, index) => (
+              <SkillIcon
+                key={index}
+                skill={skill}
+                size="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14"
+                imgSize="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8"
+                border="border-blue-500/40 hover:border-blue-500 hover:shadow-blue-500/50"
+                hoveredSkill={hoveredSkill}
+                onHover={setHoveredSkill}
+                onClick={handleSkillClick}
+              />
+            ))}
+          </OrbitingCircles>
+
+          {/* Middle Orbit */}
+          <OrbitingCircles radius={middleRadius} duration={30} reverse iconSize={middleIconSize}>
+            {[...skills.languages.slice(4), ...skills.tools.slice(0, 2)].map((skill, index) => (
+              <SkillIcon
+                key={index}
+                skill={skill}
+                size="w-9 h-9 sm:w-11 sm:h-11 md:w-12 md:h-12"
+                imgSize="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7"
+                border="border-purple-500/40 hover:border-purple-500 hover:shadow-purple-500/50"
+                hoveredSkill={hoveredSkill}
+                onHover={setHoveredSkill}
+                onClick={handleSkillClick}
+              />
+            ))}
+          </OrbitingCircles>
+
+          {/* Outer Orbit */}
+          <OrbitingCircles radius={outerRadius} duration={40} iconSize={outerIconSize}>
+            {[...skills.databases, ...skills.tools.slice(2)].map((skill, index) => (
+              <SkillIcon
+                key={index}
+                skill={skill}
+                size="w-8 h-8 sm:w-10 sm:h-10 md:w-11 md:h-11"
+                imgSize="w-5 h-5 sm:w-6 sm:h-6"
+                border="border-green-500/40 hover:border-green-500 hover:shadow-green-500/50"
+                hoveredSkill={hoveredSkill}
+                onHover={setHoveredSkill}
+                onClick={handleSkillClick}
+              />
+            ))}
+          </OrbitingCircles>
+
+          {/* Skill detail card */}
+          {hoveredSkill && (
+            <div className="absolute bottom-2 sm:bottom-6 left-1/2 -translate-x-1/2 w-[85%] sm:w-auto bg-navy/95 backdrop-blur-lg border border-white/20 rounded-xl px-4 py-3 sm:px-6 sm:py-4 z-50">
+              <p className="text-white font-bold text-sm sm:text-base md:text-lg truncate">
+                {hoveredSkill.name}
+              </p>
+            </div>
+          )}
+        </div>
       </div>
 
       {/* Legend */}
@@ -125,8 +132,6 @@ const Skills = () => {
   );
 };
 
-
-/** Extracted skill icon to keep JSX clean */
 const SkillIcon = ({ skill, size, imgSize, border, hoveredSkill, onHover, onClick }) => (
   <div
     className="relative group cursor-pointer"
