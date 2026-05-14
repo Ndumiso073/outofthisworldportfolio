@@ -20,7 +20,6 @@ const Skills = () => {
   const handleSkillClick = (skill) =>
     setHoveredSkill(hoveredSkill?.name === skill.name ? null : skill);
 
-  // Square size = 2 * outerRadius + icon padding
   const containerSize = isSmall ? 420 : isMedium ? 520 : 620;
 
   return (
@@ -33,24 +32,23 @@ const Skills = () => {
         <div className="bg-gradient-to-r from-transparent via-neutral-700 to-transparent mt-12 h-[1px] w-full" />
       </div>
 
-      {/* ✅ Full-width wrapper for centering */}
+      {/* Safe centering wrapper — no 100vw, no marginLeft hacks */}
       <div className="w-full flex justify-center overflow-hidden mt-10 sm:mt-16 md:mt-20">
 
-        {/* ✅ Perfectly square container — this is what fixes the oval sun */}
+        {/* Fixed square container — prevents oval sun */}
         <div
-          className="relative flex items-center justify-center"
+          className="relative flex items-center justify-center flex-shrink-0"
           style={{
             width: `${containerSize}px`,
-            height: `${containerSize}px`, // equal width & height = perfect square
+            height: `${containerSize}px`,
           }}
         >
-          {/* ✅ Center Hub — inline px size, flexShrink:0 prevents squishing */}
+          {/* Center Hub */}
           <div
-            className="relative z-10 flex items-center justify-center rounded-full border-2 border-white/20 bg-gradient-to-br from-blue-500/20 to-purple-500/20 backdrop-blur-sm sun-glow"
+            className="relative z-10 flex items-center justify-center rounded-full border-2 border-white/20 bg-gradient-to-br from-blue-500/20 to-purple-500/20 backdrop-blur-sm sun-glow flex-shrink-0"
             style={{
               width: isSmall ? '80px' : isMedium ? '112px' : '128px',
               height: isSmall ? '80px' : isMedium ? '112px' : '128px',
-              flexShrink: 0,
             }}
           >
             <StarfieldSun size={isSmall ? "w-12 h-12" : isMedium ? "w-16 h-16" : "w-20 h-20"} />
@@ -106,7 +104,7 @@ const Skills = () => {
 
           {/* Skill detail card */}
           {hoveredSkill && (
-            <div className="absolute bottom-2 sm:bottom-6 left-1/2 -translate-x-1/2 w-[85%] sm:w-auto bg-navy/95 backdrop-blur-lg border border-white/20 rounded-xl px-4 py-3 sm:px-6 sm:py-4 z-50">
+            <div className="absolute bottom-2 sm:bottom-6 left-1/2 -translate-x-1/2 w-[85%] sm:w-auto bg-navy/95 backdrop-blur-lg border border-white/20 rounded-xl px-4 py-3 sm:px-6 sm:py-4 z-50 pointer-events-none">
               <p className="text-white font-bold text-sm sm:text-base md:text-lg truncate">
                 {hoveredSkill.name}
               </p>
@@ -114,7 +112,6 @@ const Skills = () => {
           )}
         </div>
       </div>
-
     </section>
   );
 };
@@ -130,7 +127,7 @@ const SkillIcon = ({ skill, size, imgSize, border, hoveredSkill, onHover, onClic
       className={`${size} rounded-full bg-black/40 border-2 ${border} flex items-center justify-center hover:scale-125 transition-all duration-300 hover:shadow-lg`}
     >
       {skill.icon ? (
-        <img src={skill.icon} alt={skill.name} className={imgSize} />
+        <img src={skill.icon} alt={skill.name} className={`${imgSize} object-contain`} />
       ) : (
         <span className="text-white text-[10px] sm:text-xs font-bold">
           {skill.name[0]}

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ProjectDetails from "./ProjectDetails";
 
 const Project = ({
@@ -11,6 +11,19 @@ const Project = ({
   setPreview,
 }) => {
   const [isHidden, setIsHidden] = useState(false);
+
+  // Lock body scroll when modal is open
+  useEffect(() => {
+    if (isHidden) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isHidden]);
+
   return (
     <>
       <div
@@ -22,7 +35,9 @@ const Project = ({
           <p className="text-xl sm:text-2xl font-medium">{title}</p>
           <div className="flex flex-wrap gap-3 mt-2 text-sand">
             {tags.map((tag) => (
-              <span key={tag.id} className="text-sm sm:text-base">{tag.name}</span>
+              <span key={tag.id} className="text-sm sm:text-base">
+                {tag.name}
+              </span>
             ))}
           </div>
         </div>
@@ -34,7 +49,9 @@ const Project = ({
           <img src="assets/arrow-right.svg" className="w-4 sm:w-5" />
         </button>
       </div>
+
       <div className="bg-gradient-to-r from-transparent via-neutral-700 to-transparent h-[1px] w-full" />
+
       {isHidden && (
         <ProjectDetails
           title={title}

@@ -105,7 +105,7 @@ export const myProjects = [
   },
   {
     id: 4,
-    title: "AgriChain — Blockchain-Powered Agricultural Traceability System",
+    title: "AgriChain Blockchain Traceability",
     description:
       "A full-stack agricultural traceability system using blockchain, Supabase Auth, QR verification, and role-based access control to secure farm-to-market supply chains.",
     subDescription: [
