@@ -41,7 +41,7 @@ export const myProjects = [
       "Engineered WIL placement workflows including application processing, mentor assignment, and site visit coordination.",
       "Created audit trail system and analytics dashboards for HPCSA compliance reporting and student progress tracking.",
     ],
-    href: "",
+    href: "https://wil-management-system-cnfmcqgnbmghfmes.southafricanorth-01.azurewebsites.net/UserManagement/AddSingleUser",
     logo: "",
     image: "/assets/projects/Wilsystem.png",
     tags: [
