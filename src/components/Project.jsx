@@ -28,8 +28,6 @@ const Project = ({
     <>
       <div
         className="flex flex-wrap items-center justify-between py-5 gap-4 sm:py-6"
-        onMouseEnter={() => setPreview(image)}
-        onMouseLeave={() => setPreview(null)}
       >
         <div className="flex-1 min-w-0">
           <p className="text-xl sm:text-2xl font-medium">{title}</p>
